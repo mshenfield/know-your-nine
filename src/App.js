@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import forFrodo from './images/for-frodo.gif';
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>
+          Know Your Nine{' '}
+          <span aria-label="A ring and a sword." role="img">
+            💍🗡
+          </span>
+        </h1>
+        <main>
+          <p>A Lord of the Rings™ quiz, coming soon</p>
+          <img
+            alt="Aragorn fighting against the odds for his friend, Frodo of the Shire."
+            src={forFrodo}
+          />
+        </main>
       </div>
     );
   }
