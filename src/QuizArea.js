@@ -46,19 +46,15 @@ class QuizArea extends Component {
   render() {
     const quote = quotes[this.state.quoteIndex];
 
-    const done = this.state.answered === quotes.length;
-
-    if (done) {
-      return (
-        <div className="QuizArea">
-          <QuizScore
-            correct={this.state.correct}
-            answered={this.state.answered}
-          />
-          Congratulations! You're done.
-        </div>
+    const navigation =
+      this.state.answered === quotes.length ? (
+        "Congratulations! You're done."
+      ) : (
+        <QuizNavigation
+          isCurrentQuestionAnswered={this.state.isCurrentQuestionAnswered}
+          onClickNext={this.gotoNextQuestion}
+        />
       );
-    }
 
     return (
       <div className="QuizArea">
@@ -71,10 +67,7 @@ class QuizArea extends Component {
           quote={quote}
           onAnswer={this.onAnswer}
         />
-        <QuizNavigation
-          isCurrentQuestionAnswered={this.state.isCurrentQuestionAnswered}
-          onClickNext={this.gotoNextQuestion}
-        />
+        {navigation}
       </div>
     );
   }
