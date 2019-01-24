@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import forFrodo from './images/for-frodo.gif';
+import QuizArea from './QuizArea';
 
 import './App.css';
 
@@ -15,11 +15,8 @@ class App extends Component {
           </span>
         </h1>
         <main>
-          <p>A Lord of the Rings™ quiz, coming soon</p>
-          <img
-            alt="Aragorn fighting against the odds for his friend, Frodo of the Shire."
-            src={forFrodo}
-          />
+          <p>A Lord of the Rings™ quiz</p>
+          <QuizArea />
         </main>
       </div>
     );

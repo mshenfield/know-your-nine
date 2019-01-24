@@ -1,0 +1,11 @@
+.QuizScore-good {
+  color: green;
+}
+
+.QuizScore-medium {
+  color: goldenrod;
+}
+
+.QuizScore-bad {
+  color: darkred;
+}

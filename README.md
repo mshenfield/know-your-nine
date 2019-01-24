@@ -1,4 +1,4 @@
-# [Know Your Nine](knowyournine.com) 💍🗡
+# [Know Your Nine](https://knowyournine.com) 💍🗡
 Know Your Nine is a quiz to test your Lord of the Rings knowledge.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

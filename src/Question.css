@@ -1,0 +1,18 @@
+/* Conditionally display things when things are answered or not
+
+We could do this in React with ternary statementys, but putting them hear is a
+little more concise
+*/
+
+.Question.Question-unanswered .Quote-image,
+.Question.Question-unanswered .Quote-speaker,
+.Question.Question-unanswered .Question-result,
+.Question.Question-unanswered .Question-yourAnswer {
+  display: none;
+}
+
+.Question.Question-answered .FellowshipSelect,
+.Question.Question-answered .Question-submit,
+.Question.Question-answered .Quote-text {
+  display: none;
+}
