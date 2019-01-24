@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "94bc8b5e261f8cd81c63",
+    "revision": "0d4dc9337194ea43fc07",
     "url": "/static/css/main.88164d2b.chunk.css"
   },
   {
-    "revision": "94bc8b5e261f8cd81c63",
-    "url": "/static/js/main.94bc8b5e.chunk.js"
+    "revision": "0d4dc9337194ea43fc07",
+    "url": "/static/js/main.0d4dc933.chunk.js"
   },
   {
     "revision": "665783d7aa1af1aa465a",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/static/media/you-shall-not-pass.4f11dcb2.webp"
   },
   {
-    "revision": "a5d1468338ca790caa924a5e59cf02d9",
+    "revision": "5558cf17dbddf51d94c87d2389b245ad",
     "url": "/index.html"
   }
 ];
