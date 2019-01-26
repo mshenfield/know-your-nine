@@ -1,3 +1,4 @@
+/// <reference path="types/images.d.ts"/>
 import giveThemAMoment from './images/give-them-a-moment.gif';
 import isItSecret from './images/is-it-secret-is-it-safe.gif';
 import keepYourSecrets from './images/alright-then-keep-your-secrets.gif';
@@ -13,7 +14,9 @@ import whatIsThisNewDevilry from './images/what-is-this-new-devilry.gif';
 import youCannotWieldIt from './images/you-cannot-wield-it.gif';
 import youShallNotPass from './images/you-shall-not-pass.webp';
 
-export default [
+import Quote from './types/Quote';
+
+const quotes: Quote[] = [
   {
     text: 'Is it secret? Is it safe!?',
     speaker: 'Gandalf',
@@ -86,3 +89,5 @@ export default [
     image: partOfThisWorld
   }
 ];
+
+export default quotes;

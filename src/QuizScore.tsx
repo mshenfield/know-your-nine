@@ -1,11 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 
 import classNames from 'classnames';
 
 import './QuizScore.css';
 
-const QuizScore = props => {
-  var scoreQualityClass;
+export interface QuizScoreProps {
+  answered: number;
+  correct: number;
+}
+const QuizScore = (props: QuizScoreProps) => {
+  let scoreQualityClass: string;
   // Default to good if there haven't been any answers yet
   if (props.answered === 0) {
     scoreQualityClass = 'QuizScore-good';

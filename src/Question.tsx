@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 
 import classNames from 'classnames';
+
+import Quote from './types/Quote';
 
 import './Question.css';
 
@@ -20,7 +23,7 @@ const THE_FELLOWSHIP = [
 
 props are passed through to the select component.
 */
-const FellowshipSelect = props => {
+const FellowshipSelect = (props: any) => {
   return (
     <select className="FellowshipSelect" {...props}>
       <option value={FellowshipSelect.defaultValue} disabled hidden>
@@ -36,24 +39,36 @@ const FellowshipSelect = props => {
 };
 FellowshipSelect.defaultValue = '';
 
+export interface QuestionProps {
+  answered: boolean;
+  onAnswer: (isAnswerCorrect: boolean) => void;
+  quote: Quote;
+}
+
+interface QuestionState {
+  answer: string | null;
+  speaker: string;
+}
+
 /* Quote display, answer selection, and answer display
 
 There's a lot happening here. One surprising fact is that the caller must
 specify whether the question displays as answered or not. It's not ideal,
 but it allows resetting the question from above.
 */
-class Question extends Component {
-  state = {
-    speaker: FellowshipSelect.defaultValue,
-    answer: null
-  };
+class Question extends Component<QuestionProps, QuestionState> {
+  onAnswerHook: (isAnswerCorrect: boolean) => void;
 
-  constructor(props) {
+  constructor(props: QuestionProps) {
     super(props);
     this.onAnswerHook = props.onAnswer;
+    this.state = {
+      speaker: FellowshipSelect.defaultValue,
+      answer: null
+    };
   }
 
-  speakerIsCorrect() {
+  speakerIsCorrect(): boolean {
     return this.state.answer === this.props.quote.speaker;
   }
 
@@ -69,8 +84,8 @@ class Question extends Component {
     );
   };
 
-  setSpeaker = event => {
-    this.setState({ speaker: event.target.value });
+  setSpeaker = (event: React.FormEvent<HTMLInputElement>) => {
+    this.setState({ speaker: (event.target as HTMLInputElement).value });
   };
 
   render() {

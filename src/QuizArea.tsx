@@ -1,14 +1,20 @@
 /* The quiz card and navigation */
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 
-import Question from './Question.js';
-import QuizScore from './QuizScore.js';
+import Question from './Question';
+import QuizScore from './QuizScore';
 
-import quotes from './base-quotes.js';
+import quotes from './base-quotes';
 
-const QuizNavigation = props => {
+export interface QuizNavigationProps {
+  isCurrentQuestionAnswered: boolean;
+  onClickNext: (event: React.MouseEvent<HTMLButtonElement>) => any;
+}
+
+const QuizNavigation = (props: QuizNavigationProps) => {
   if (!props.isCurrentQuestionAnswered) {
-    return false;
+    return null;
   }
 
   return (
@@ -18,16 +24,25 @@ const QuizNavigation = props => {
   );
 };
 
-class QuizArea extends Component {
-  state = {
+export interface QuizAreaProps {}
+
+interface QuizAreaState {
+  answered: number;
+  correct: number;
+  isCurrentQuestionAnswered: boolean;
+  quoteIndex: number;
+}
+
+class QuizArea extends Component<QuizAreaProps, QuizAreaState> {
+  state: QuizAreaState = {
     answered: 0,
     correct: 0,
     isCurrentQuestionAnswered: false,
     quoteIndex: 0
   };
 
-  onAnswer = answeredCorrectly => {
-    this.setState((state, props) => ({
+  onAnswer = (answeredCorrectly: boolean) => {
+    this.setState(state => ({
       answered: state.answered + 1,
       correct: answeredCorrectly ? state.correct + 1 : state.correct,
       isCurrentQuestionAnswered: true
@@ -35,9 +50,9 @@ class QuizArea extends Component {
   };
 
   gotoNextQuestion = () => {
-    this.setState((state, props) => {
+    this.setState(state => {
       return {
-        quoteIndex: this.state.quoteIndex + 1,
+        quoteIndex: state.quoteIndex + 1,
         isCurrentQuestionAnswered: false
       };
     });
